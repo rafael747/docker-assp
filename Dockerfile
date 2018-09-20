@@ -4,7 +4,7 @@ MAINTAINER Rafael Carreira <rafaelcarreira@macromind.com.br>
 # Install Deps
 RUN apt-get update && apt-get install -y \
 	build-essential unzip wget libssl-dev libdb-dev curl software-properties-common cpanminus \
-	libxml-perl libdbd-mysql-perl pkg-config libtime-parsedate-perl git mysql-client vim supervisor
+	libxml-perl libdbd-mysql-perl pkg-config libtime-parsedate-perl git mysql-client vim supervisor libbz2-dev
 
 # Install Perl Deps
 RUN cpanm --force \
