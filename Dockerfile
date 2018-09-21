@@ -30,9 +30,9 @@ RUN echo postfix postfix/main_mailer_type string "'Internet Site'" | debconf-set
 		echo postfix postfix/mynetworks string "127.0.0.0/8" | debconf-set-selections && \
 		echo postfix postfix/mailname string antispam.macromind.online | debconf-set-selections && \
 		apt-get --yes --force-yes install postfix && \
-		postconf -e mydestination="antispam.macromind.online, localhost.localdomain, localhost" && \
+		postconf -e mydestination="localhost.localdomain, localhost" && \
 		postconf -e smtpd_banner='$myhostname ESMTP $mail_name' && \
-		postconf -e myhostname="antispam.macromind.online" && \
+		postconf -e myhostname="antispam" && \
 		postconf -e inet_protocols=ipv4 && \
 		postconf -e smtpd_client_restrictions="permit_mynetworks, reject" && \
 		postconf -e smtpd_delay_reject=no && \
