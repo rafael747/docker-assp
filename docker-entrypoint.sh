@@ -25,6 +25,8 @@ then
 	then
 		eval `ssh-agent`
 		ssh-add /root/.ssh/server-rsa
+		ssh-keyscan github.com >> /root/.ssh/known_hosts
+		ssh-keyscan gitlab.com >> /root/.ssh/known_hosts
 		ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
 		cd /usr/share
 		if [ -d "$DIR/.git" ]
