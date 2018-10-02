@@ -28,7 +28,7 @@ RUN cpanm \
 # Setup postfix
 RUN echo postfix postfix/main_mailer_type string "'Internet Site'" | debconf-set-selections && \
 		echo postfix postfix/mynetworks string "127.0.0.0/8" | debconf-set-selections && \
-		echo postfix postfix/mailname string antispam.macromind.online | debconf-set-selections && \
+		echo postfix postfix/mailname string antispam | debconf-set-selections && \
 		apt-get --yes --force-yes install postfix && \
 		postconf -e mydestination="localhost.localdomain, localhost" && \
 		postconf -e smtpd_banner='$myhostname ESMTP $mail_name' && \

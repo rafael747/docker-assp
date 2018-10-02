@@ -69,7 +69,19 @@ then
 				do
 					mv $i $i.add
 				done
-			fi	
+			fi
+			
+			# Setting more configs
+			if [ "$DOMAIN" ]
+			then
+				echo "Setting server's domain name..."
+				postconf -e mydestination="localhost.localdomain, localhost, $DOMAIN"
+				postconf -e myhostname="$DOMAIN"
+				echo $DOMAIN > /etc/mailname
+			fi
+
+			# Setting allowed IPs for relay	
+			postconf -e mynetworks="127.0.0.0/8 `hostname -i`"
 		fi
 
 	else
